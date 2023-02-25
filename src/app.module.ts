@@ -9,7 +9,7 @@ import { ParcelsModule } from './parcels/parcels.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'db',
       port: 3306,
       username: 'root',
       password: 'password',
