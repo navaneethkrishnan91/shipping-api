@@ -14,10 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular application
-RUN npm run build -- --prod
-
-# Expose port 80
-EXPOSE 80
+RUN npm run build
 
 # Run the Angular application when the container starts
 CMD ["npm", "run", "start"]
