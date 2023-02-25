@@ -14,8 +14,6 @@ This is a simple NestJS web application that provides APIs to insert and list pa
 - Run `npm install` to install the required dependencies.
 
 ## Running the App Locally
-- Update the typeorm config in app module to use localhost as host
-- Update the typeorm config in parcels e2e test to use localhost as host
 - Run `npm run build` to build the app.
 - Run `npm run start` to start the app.
 - Open a web browser and navigate to http://localhost:3000.
@@ -28,7 +26,9 @@ This is a simple NestJS web application that provides APIs to insert and list pa
 
 ## Testing
 - Run `npm run test` to run the unit tests for the app.
-- Run `npm run test:e2e` to run the end-to-end tests for the app. [can only be run locally]
+
+## e2e Testing [Only inside docker container shell]
+- Run `npm run test:e2e` to run the end-to-end tests for the app
 
 ## API Routes
 The following routes have been implemented:
