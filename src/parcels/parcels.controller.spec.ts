@@ -47,6 +47,19 @@ describe('ParcelsController', () => {
 
     controller = module.get<ParcelsController>(ParcelsController);
     service = module.get<ParcelsService>(ParcelsService);
+
+    jest
+      .spyOn(service, 'findAll')
+      .mockImplementation((country, description) => {
+        return Promise.resolve(
+          parcels.filter((parcel) => {
+            return (
+              (country ? parcel.country === country : true) &&
+              (description ? parcel.description === description : true)
+            );
+          }),
+        );
+      });
   });
 
   afterEach(() => {
