@@ -68,24 +68,17 @@ describe('ParcelsController', () => {
 
   describe('findAll', () => {
     it('should return an array of parcels', async () => {
-      const result = [newParcel];
-      jest.spyOn(service, 'findAll').mockResolvedValue(result);
-
-      expect(await controller.findAll(null, null)).toBe(result);
+      expect(await controller.findAll(null, null)).toStrictEqual(parcels);
     });
 
     it('should filter by country', async () => {
-      const result = [newParcel];
-      jest.spyOn(service, 'findAll').mockResolvedValue(result);
-
-      expect(await controller.findAll('USA', null)).toBe(result);
+      expect(await controller.findAll('USA', null)).toStrictEqual([parcels[0]]);
     });
 
     it('should filter by description', async () => {
-      const result = [newParcel];
-      jest.spyOn(service, 'findAll').mockResolvedValue(result);
-
-      expect(await controller.findAll(null, 'Test parcel')).toBe(result);
+      expect(await controller.findAll(null, 'Test parcel2')).toStrictEqual([
+        parcels[1],
+      ]);
     });
   });
 
