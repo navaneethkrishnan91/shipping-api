@@ -15,15 +15,26 @@ describe('ParcelsController', () => {
     findOne: jest.fn(),
   };
 
-  const newParcel: Parcel = {
-    id: 1,
-    sku: '12345',
-    description: 'Test parcel',
-    address: '123 Main St',
-    town: 'Anytown',
-    country: 'USA',
-    deliveryDate: new Date(),
-  };
+  const parcels: Parcel[] = [
+    {
+      id: 1,
+      sku: '12345',
+      description: 'Test parcel1',
+      address: '123 Main St',
+      town: 'Anytown',
+      country: 'USA',
+      deliveryDate: new Date(),
+    },
+    {
+      id: 2,
+      sku: '23456',
+      description: 'Test parcel2',
+      address: '246 Long St',
+      town: 'Sometown',
+      country: 'Estonia',
+      deliveryDate: new Date(),
+    },
+  ];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
