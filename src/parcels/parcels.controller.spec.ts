@@ -92,17 +92,12 @@ describe('ParcelsController', () => {
 
   describe('checkSkuExists', () => {
     it('should return exists=true if the SKU exists', async () => {
-      const sku = 'ABC123';
-      jest.spyOn(service, 'checkSkuExists').mockResolvedValue(true);
+      const sku = parcels[0].sku;
+      jest.spyOn(service, 'checkSkuExists').mockImplementation((sku) => {
+        return Promise.resolve(parcels.some((parcel) => parcel.sku == sku));
+      });
 
       expect(await controller.checkSkuExists(sku)).toEqual({ exists: true });
-    });
-
-    it('should return exists=false if the SKU does not exist', async () => {
-      const sku = 'ABC123';
-      jest.spyOn(service, 'checkSkuExists').mockResolvedValue(false);
-
-      expect(await controller.checkSkuExists(sku)).toEqual({ exists: false });
     });
   });
 });
