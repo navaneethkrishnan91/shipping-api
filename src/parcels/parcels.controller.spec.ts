@@ -84,10 +84,9 @@ describe('ParcelsController', () => {
 
   describe('create', () => {
     it('should create a parcel', async () => {
-      const parcel = newParcel;
-      jest.spyOn(service, 'create').mockResolvedValue(parcel);
+      jest.spyOn(service, 'create').mockResolvedValue(parcels[0]);
 
-      expect(await controller.create(parcel)).toBe(parcel);
+      expect(await controller.create(parcels[0])).toBe(parcels[0]);
     });
   });
 
