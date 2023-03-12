@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
 import { Parcel } from './parcel.entity';
 import { ParcelsService } from './parcels.service';
+import { CreateParcelDto } from './dto/create-parcel.dto';
 
 @Controller('parcels')
 export class ParcelsController {
@@ -15,7 +16,7 @@ export class ParcelsController {
   }
 
   @Post()
-  async create(@Body() parcel: Parcel): Promise<Parcel> {
+  async create(@Body() parcel: CreateParcelDto): Promise<Parcel> {
     return this.parcelsService.create(parcel);
   }
 
